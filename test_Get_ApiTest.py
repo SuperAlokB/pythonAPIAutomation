@@ -12,14 +12,28 @@ def test_get_employee_details_withstatus_200():
     assert response.status_code == 200
     #The data is returned as a Python dictionary 
     json_response = response.json()    
+       
+    #print(json_response[0]) 
+    #print(len(json_response))
+    
+    #Getting all objects from pet store - 
+    for objects in json_response:
+        print(objects)
+        #can write verification login for each objects
         
     firstAnimalName = [category['id'] for category in json_response]
-    print(type(firstAnimalName))
     print(firstAnimalName[0])
-    
-    assert_that(firstAnimalName[0]).is_equal_to(23444)
-  
    
+   # print all json data in response 
+      
+    """
+    for key in json_response[0]:{
+        print(key, ":" , json_response[key])
+       
+    }"""
+
+ # print(type(json_response))
+    assert_that(firstAnimalName[0]).is_equal_to(23444)
     
        #Response json contents
     
